@@ -1,0 +1,102 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1rem;
+}
+
+.tableWrapper {
+    background: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #3a3a3a;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.thead {
+    background: #1a1a1a;
+}
+
+.th {
+    padding: 1.25rem;
+    text-align: left;
+    color: #4a9eff;
+    font-weight: 600;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.tbody {
+    background: #2a2a2a;
+}
+
+.tr {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.tr:hover {
+    background: #333;
+}
+
+.td {
+    padding: 1.25rem;
+    color: #cccccc;
+}
+
+.td:first-child {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.roleBadge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.roleAdmin {
+    background: #ff4444;
+    color: #ffffff;
+}
+
+.roleUser {
+    background: #4a9eff;
+    color: #ffffff;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #888;
+}
+
+.emptyStateIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 3rem;
+    color: #4a9eff;
+}

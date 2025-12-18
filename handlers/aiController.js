@@ -1,5 +1,6 @@
 const { chatWithAI } = require("./aiSystem");
 
+// TODO: Use this handler to test that Cohere is working
 const handleChatRequest = async (req, res) => {
     try {
         const { prompt } = req.body;
@@ -27,7 +28,7 @@ const handleChatRequest = async (req, res) => {
             });
         }
     } catch (err) {
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             error: "Internal Server Error!",
         });

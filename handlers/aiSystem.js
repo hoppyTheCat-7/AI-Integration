@@ -7,7 +7,7 @@ const cohere = new CohereClient({
 const chatWithAI = async (prompt) => {
     try {
         const response = await cohere.v2.chat({
-            model: "command-r",
+            model: "command-a-03-2025",
             messages: [{ role: "user", content: prompt }],
             temperature: 0.1,
         });

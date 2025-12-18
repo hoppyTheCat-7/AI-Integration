@@ -1,10 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const {expressjwt: jwt} = require("express-jwt");
+const { expressjwt: jwt } = require("express-jwt");
 
 require("dotenv").config();
 const db = require("./pkg/db");
 const { login, signup } = require("./handlers/authHandler");
+const { createSoil, getAllSoils, addSampleSoils, chatAboutSoils } = require("./handlers/soilController");
+const { createBook, getAllBooks, addSampleBooks, chatAboutBooks } = require("./handlers/bookController");
+const { getUsers } = require("./handlers/userController");
 db.init();
 
 const app = express();
@@ -19,7 +22,7 @@ app.use(
         secret: process.env.JWT_SECRET,
         algorithms: ["HS256"],
     }).unless({
-        path:["/api/auth/login", "/api/auth/signup", "/api/test", "/api/echo"],
+        path: ["/api/auth/login", "/api/auth/signup", "/api/test", "/api/echo"],
     })
 );
 
@@ -44,6 +47,23 @@ app.post("/api/echo", (req, res) => {
 // Authentication
 app.post("/api/auth/login", login);
 app.post("/api/auth/signup", signup);
+
+// Soils
+app.post("/api/soil", createSoil);
+app.get("/api/soil", getAllSoils);
+
+app.post("/api/soil/sample", addSampleSoils);
+app.post("/api/soil/chat", chatAboutSoils);
+
+// Books
+app.post("/api/book", createBook);
+app.get("/api/book", getAllBooks);
+
+app.post("/api/book/sample", addSampleBooks);
+app.post("/api/book/chat", chatAboutBooks);
+
+// Users
+app.get("/api/users", getUsers);
 
 const PORT = process.env.PORT || 3000;
 

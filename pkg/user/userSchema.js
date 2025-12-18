@@ -23,10 +23,15 @@ const userSchema = new mongoose.Schema({
         default: "user",
         required: true,
     },
+    isBlocked: {
+        type: Boolean,
+        default: false,
+    }
 });
 
 userSchema.pre("save", async function () {
     if (!this.isModified("password")) return;
+
     this.password = await bcrypt.hash(this.password, 12);
 });
 
@@ -41,4 +46,8 @@ const create = async (data) => {
     return await newUser.save();
 };
 
-module.exports = { getByEmail, create };
+const getAll = async () => {
+    return await User.find();
+};
+
+module.exports = { getByEmail, create, getAll };
